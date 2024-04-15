@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Enter a number between 2 and 10 </p>
+    <input type="text" name="num1" id="num1" size="1"> by 
+    <input type="text" name="num2" id="num2" size="1"><br> <br>
+    <button onclick="generate()">Click here when ready!</button> <br><br>
+    <div id="multiplicationTable"></div>
+</body>
+<script>
+    function generate(){
+        var row = parseInt(document.getElementById("num1").value);
+        var column = parseInt(document.getElementById("num2").value);  
+        var Table = "";
+
+        if (row<2 || row>10 || column <2 || column >10 || isNaN(row) || isNaN(column)){
+            alert("Please enter numbers between 2 and 10");
+            return;
+        }
+
+        for(var toRow=1; toRow<=row; toRow++){
+            for(var toColumn=1; toColumn<=column; toColumn++){
+                Table += "<td>" + (toColumn * toRow) + "</td>";
+            }
+             Table += "<tr>";
+        }
+        document.getElementById("multiplicationTable").innerHTML="<table border ='1'><tr>" + Table + "</tr></table>";
+
+    }
+</script>
+</html>
